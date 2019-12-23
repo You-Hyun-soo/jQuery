@@ -1,0 +1,13 @@
+.box,.box1{
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    background-color: blueviolet;
+    position: relative;
+}
+
+.btn{
+    width: 150px;
+    height: 30px;
+    padding: 2px;
+}

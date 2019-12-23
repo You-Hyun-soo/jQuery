@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+.header{
+    height: 160px;
+    background-color: grey;
+}
+.menu {
+    height: 50px;
+    background-color: black;
+}
+.menu .list {
+    width: 500px;
+    margin: 0 auto;
+}
+.menu .list .item {
+    width: 100px;
+    float: left;
+    line-height: 50px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+}
+.section {
+    height: 800px;
+    padding-top : 50px;
+}
+.section1 {
+    background-color: lightblue;
+}
+.section2 {
+    background-color: lightcoral;
+}   
+.section3 {
+    background-color: violet;
+}   
+.section4 {
+    background-color: greenyellow;
+}   
+.section5 {
+    background-color: goldenrod;
+    height: 900px;
+}      
+.menu {
+    transition: background-color .4s ease;
+    position: absolute;
+    width: 100%;
+    /* 글의 내용이 튀는 현상을 방지하기 위해서 position을 absoulte 넓이를 100%준다. */
+}
+.menu.fixed {
+    position : fixed;
+    top : 0;
+    width: 100%;
+    background-color : rgba(0,0,0,0.6);
+}
+.menu .list .item.select {
+    color : orange;
+}
