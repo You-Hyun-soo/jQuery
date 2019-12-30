@@ -4,7 +4,7 @@ $(window).on('scroll',function(){
     
     // 스크롤 이벤트에서 가장 중요한건 현재 스크롤의 위치이다.
     var nowScroll = $(this).scrollTop();
-    console.log(nowScroll);
+  
     // if( nowScroll >= 160 ){
     //     $('.menu').css({
     //         position : 'fixed' ,
@@ -61,6 +61,17 @@ $(window).on('scroll',function(){
     // }
     
     // 위에 처럼 쓰면 페이지가 늘어날 때 계속해서 수정해야 하는 문제점
+
+    $('.section').each(function(index){
+        
+        var posStart = $(this).position().top;
+        var posEnd = posStart + $(this).height();
+      //  console.log(posStart);
+        if( nowScroll >= posStart && nowScroll < posEnd) {
+            $('.item').removeClass('select');
+            $('.item').eq(index).addClass('select');
+        };
+    });
     /*
 
         if( 현재스크롤 >= 태그위 맨위위치(position()) && 현재스크롤 < 태그의 맨 아래 위치(height())){
@@ -72,7 +83,29 @@ $(window).on('scroll',function(){
 });
 
 //each 선택자의 갯수만큼 함수를 실행하는 기능
-$('.item').each(function(index){ // each는 대상을 순서대로 잡는다
-   // $('.item').eq(index).addClass('select');
-   $(this).addClass('active'); // this도 각 대상의 대상을 잡는다
+// $('.item').each(function(index){ // each는 대상을 순서대로 잡는다
+//    $('.item').eq(index).addClass('select');
+//    $(this).addClass('active'); // this도 각 대상의 대상을 잡는다
+//});
+
+// index를 가져오는 기능을 보자
+
+$('.item').on('click',function(){
+
+    var idx = $(this).index();
+    var move = $('.section').eq(idx);
+
+    var moveTop = move.position().top;
+
+    $('html, body').animate({
+        scrollTop : moveTop
+    }); // ui를 사용해서 easebounce효과 등을 넣을 수 있다.
+    console.log(idx); 
 });
+
+var check = $(window).scrollTop();
+console.log(check);
+
+if( check >= 160) {
+    $('.menu').addClass('fixed');
+} // 중간에서도 새로고침을 해도 메뉴바가 고정되게 하는 기능
