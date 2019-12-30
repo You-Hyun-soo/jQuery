@@ -1,0 +1,35 @@
+.box {
+    height: 260px;
+    text-align: center;
+    line-height: 260px;
+    font-size: 80px;
+    color: transparent;
+}
+.box1 {
+    background-color: aqua;
+}
+.box2 {
+    background-color: red;
+}
+.box3 {
+    background-color: blueviolet;
+}
+.box4 {
+    background-color: darkcyan;
+}
+.wrapper {
+    width: 1000px;
+    margin: 100px auto 20px;
+}
+
+.bx-wrapper {
+    border: 0;
+    box-shadow: none;
+}
+.button, .move{
+    text-align: center;
+    margin-bottom: 15px;
+}
+button{
+    padding: 10px 20px;
+}
