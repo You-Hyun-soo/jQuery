@@ -109,6 +109,7 @@ function viewList(){
         <td>' + data.list[i].name + '</td>\
         <td>' + data.list[i].phone + '</td>\
         <td class="remove">삭제</td>\
+        <td class="modify">수정</td>\
     </tr>';
 
     $('tbody').append(tag);
@@ -147,7 +148,27 @@ function removeItem(){
     // react 메모리상의 변동이 없으면 그대로 사용하는 방식
 }
 
+function updateItem(){
+    var nam = $('.name').val();
+    var phon = $('.phone').val();
+    console.log(nam);
+    console.log(phon);
+    
+}
+function modifyItem(){
+    var idx = $(this).parents().index();
+    var up = data.list[idx]
+    console.log(up.name);
+    console.log(up.phone);
+    $('.name').val(up.name);
+    $('.phone').val(up.phone);
+    viewList();
+}
 $('.add').on('click',newFunc);
 $(document).on('click','.remove',removeItem);
+$(document).on('click','.update',updateItem);
+$(document).on('click','.modify',modifyItem);
 viewList();
 
+// 수정하는 기능 만들기
+// 수정하기 누르면 이름 폰의 값을 input 값에 넣고 다시 위의 수정 버튼을 누르면 바꾸는 방식
